@@ -1,38 +1,18 @@
-/*
- * Web Starter Kit
- *
- * Multi-screen layout styles for your page. Brought to you by the
- * Web Starter Kit team.
- *
- */
-
-@import '_h5bp';
-
-/*
- * Visual Style Guide styles
- * Remove if you prefer to use a CSS library, like Bootstrap
- */
-
-@font-face {
-  font-family: icons;
-  src: url(../images/icons/icons.eot);
-  src: url(../images/icons/icons.eot?#iefix) format('embedded-opentype'),
-    url(../images/icons/icons.woff2) format('woff2'),
-    url(../images/icons/icons.woff) format('woff'),
-    url(../images/icons/icons.ttf) format('truetype'),
-    url(../images/icons/icons.svg?#icons) format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 
-@import 'components/components';
+
+
  html,
 body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+
+.nav-up {
+    top: -40px;
 }
 body {
     position: relative;
@@ -46,6 +26,81 @@ body.open {
 }
 .page-header {
     margin-top: 20px;
+}
+
+.facebook{
+    width: 40px;
+    height: 40px;
+    display:inline-block;
+background-size: cover;
+background-image: url("../images/facebook-square.png")
+}
+.facebook:hover{
+background-image: url("../images/facebook-square-hover.png")
+}
+.googleplus{
+ width: 40px;
+    height: 40px;
+    display:inline-block;
+background-size: cover;
+background-image: url("../images/googleplus-square.png")
+}
+.googleplus:hover{
+background-image: url("../images/googleplus-square-hover.png")
+}
+
+.twitter{
+ width: 40px;
+    height: 40px;
+    display:inline-block;
+background-size: cover;
+background-image: url("../images/twitter.png")
+}
+.twitter:hover{
+background-image: url("../images/twitter-hover.png")
+}
+
+.github{
+ width: 40px;
+    height: 40px;
+    display:inline-block;
+background-size: cover;
+background-image: url("../images/github.png")
+}
+.github:hover{
+background-image: url("../images/github-hover.png")
+}
+.blog{
+ width: 40px;
+    height: 40px;
+    display:inline-block;
+background-size: cover;
+background-image: url("../images/blogger.png")
+}
+.blog:hover{
+background-image: url("../images/blogger-hover.png")
+}
+
+
+#login_btn strong {
+color: #fefefe;
+}
+#login_btn strong:hover{
+color: #18bc9c;
+}
+#logout_btn strong {
+color: #fefefe;
+}
+#logout_btn strong:hover{
+color: #18bc9c;
+}
+.footer_headings{
+color: white;
+    padding-bottom: 15px;
+    
+}
+#contact_btn strong {
+color: #fefefe;
 }
 .app-bar {
     display: block;
@@ -62,6 +117,49 @@ body.open {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+#service-heading{
+text-align: center;
+color: white;
+text-shadow: 2px 2px black;
+font-size: 50px;    
+
+}
+.caption p{
+text-align: center;
+}
+
+#services{
+height: auto;
+    padding-top: 150px;
+    padding-bottom: 150px;
+   background-image: url("../images/program.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.service_img{
+width: 500px;
+height: 300px;
+}
+
+.btn-custom{
+background: #18bc9c;
+}
+.btn-custom:hover{
+background: white;
+color: #18bc9c;
+border: 1px solid #18bc9c;
+}
+.btn-custom2{
+background: #4285f4;
+}
+.btn-custom2:hover{
+background: white;
+color: #4285f4;
+border: 1px solid #4285f4;
 }
 
 .app-bar-container {
@@ -86,27 +184,39 @@ body.open {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    font-size: 2em;
+    
     line-height: 60px;
-    margin: 0 16px;
+    margin: 0;
     padding: 0;
     color: #fefefe;
-    float: none;
+    float: left;
     max-width: none;
     font-weight: 300;
     display: initial;
 }
+
 .styleguide__feature-spotlight {
     margin-top: 0px;
-    
+    }
+.featured-spotlight{
+background: rgba(0, 0, 0, 0.87);
+    color: #ffffff;
+    overflow: hidden;
+    padding-bottom: 77px;
 }
+
 .app-bar .logo a {
     text-decoration: none;
     color: inherit;
     font-weight: normal;
 }
+.app-bar .logo a:hover{
+
+color: #18bc9c;
+}
+
 li #welcome {
-    display: none;
+   
 }
 .app-bar-actions {
     display: -webkit-flex;
@@ -123,8 +233,8 @@ li #welcome {
     background-image: none;
     background-color: transparent;
     border: none;
-    padding: 0;
-    display: inline-block;
+    
+    
     -webkit-transition: background-color 0.2s ease-out;
     transition: background-color 0.2s ease-out;
     -webkit-tap-highlight-color: transparent;
@@ -139,13 +249,19 @@ width: 20px;
 }
 .app-bar button:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    color: #18bc9c;
+    border-radius: 5px;
 }
 .app-bar button:focus {
     background-color: rgba(255, 255, 255, 0.2);
     outline: 0;
+    color: #18bc9c;
+    border-radius: 5px;
 }
 .app-bar button:active {
     background-color: rgba(255, 255, 255, 0.4);
+      color: #18bc9c;
+    border-radius: 5px;
 }
 .promote-layer {
     /*
@@ -190,7 +306,7 @@ main {
 }
 .navdrawer-container h4,
 .navdrawer-container ul li a {
-    height: 25px;
+    height: 60px;
     padding: 17px 20px;
     line-height: 1.4;
 }
@@ -222,13 +338,16 @@ main {
 }
 .navdrawer-container ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
+      color: #18bc9c;
 }
 .navdrawer-container ul li a:focus {
     background-color: rgba(255, 255, 255, 0.3);
+      color: #18bc9c;
     outline: 0;
 }
 .navdrawer-container ul li a:active {
     background-color: rgba(255, 255, 255, 0.4);
+    color: #18bc9c;
 }
 main {
     margin: 0 auto;
@@ -380,13 +499,95 @@ textarea {
 .icon-star::before {
   content: '\e016';
 }
-#star{
+#star-primary{
  
 
 }
+
 .icon-lessons::before {
   content: '\e00e';
 }
+.floating-label-form-group {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: .5em;
+    border-bottom: 1px solid white;
+}
+
+.floating-label-form-group input,
+.floating-label-form-group textarea {
+    z-index: 1;
+    color: white;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 1.5em;
+    background: 0 0;
+    box-shadow: none!important;
+    resize: none;
+}
+.floating-label-form-group input::-webkit-input-placeholder{
+color: white;
+}
+.floating-label-form-group textarea::-webkit-input-placeholder{
+color: white;
+} 
+.floating-label-form-group input::-moz-placeholder{
+color: white;
+}
+.floating-label-form-group textarea::-moz-placeholder{
+color: white;
+} 
+.floating-label-form-group input:-moz-placeholder{
+color: white;
+}
+.floating-label-form-group textarea:-moz-placeholder{
+color: white;
+} 
+.floating-label-form-group input:-ms-input-placeholder{
+color: white;
+}
+.floating-label-form-group textarea:-ms-input-placeholder{
+color: white;
+} 
+.floating-label-form-group label {
+    display: block;
+    color: white;
+    z-index: 0;
+    position: relative;
+    top: 2em;
+    margin: 0;
+    font-size: .85em;
+    line-height: 1.764705882em;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+    -webkit-transition: top .3s ease,opacity .3s ease;
+    -moz-transition: top .3s ease,opacity .3s ease;
+    -ms-transition: top .3s ease,opacity .3s ease;
+    transition: top .3s ease,opacity .3s ease;
+}
+
+.floating-label-form-group::not(:first-child) {
+    padding-left: 14px;
+    border-left: 1px solid #aaa;
+}
+
+.floating-label-form-group-with-value label {
+    top: 0;
+    opacity: 1;
+}
+
+.floating-label-form-group-with-focus label {
+    color: #18bc9c;
+}
+
+form .row:first-child .floating-label-form-group {
+    border-top: 1px solid white;
+}
+
 
 #login,
 #contact {
@@ -395,7 +596,7 @@ textarea {
     background-color: white;
     font-family: 'Fauna One', serif;
     position: relative;
-    border: 5px solid rgb(66, 133, 244);
+   /* border: 5px solid rgb(66, 133, 244);*/
 }
 #cancel_btn {
     float: right;
@@ -423,12 +624,13 @@ textarea {
 .to-top-btn {
     position: fixed;
     bottom: 20px;
-    right: 30px;
+    right: 5px;
     text-decoration: none;
     color: #454440;
     padding: 10px;
     border-radius: 5px;
     display: none;
+
 }
 .cmn-toggle-switch {
     display: block;
@@ -471,6 +673,11 @@ textarea {
     height: 6px;
     background-color: #fff;
     content: "";
+}
+
+.row{
+padding-right: 0;
+    padding-left: 0;
 }
 .cmn-toggle-switch span::before {
     top: -10px;
@@ -539,6 +746,16 @@ textarea {
     
     
 }
+ #half1 {
+text-align: center;        
+}
+#half2 {
+text-align: center;
+} 
+    
+#half3{
+text-align: center;
+}
 
  #panel {
         position: relative;
@@ -563,13 +780,78 @@ textarea {
     clear: both;
 }
 #copyright {
+    color: white;
     text-align: center;
     clear: both;
-  
+   padding-top: 25px;
     font-size: large;
     font-weight: bold;
    
 }
+#contactme{
+background-color: #18bc9c;
+}
+
+
+#user_login{
+
+width: 15%;
+float: right;
+margin-left: 5px;
+}
+#password_login{
+width: 15%;
+float: right;
+    
+}
+.header_login #login_submit{
+width: auto;
+margin-left: 5px;
+margin-right: 5px;
+float: right;
+}
+
+#contact_me{
+font-size: 50px;
+color: white;
+}
+
+#center_text{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+.profile_me {
+    text-align: center;
+    color: #fff;
+    background: #18bc9c;
+}
+
+.profile_me .container {
+    
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.profile_me img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.profile_me .intro-text .name {
+    display: block;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.profile_me .intro-text .skills {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+
 @media (max-width: 580px) {
     #contact {
     width: 50%;
@@ -582,10 +864,10 @@ textarea {
     top: 50%;
     }
     #half1 {
-        padding-left: 10%;
+        
     }
     #half2 {
-        padding-left: 10%;
+      
     }
     #copyright{
     padding-top: 50px;
@@ -593,30 +875,92 @@ textarea {
     #bgimg {
     padding-bottom: 200px;
     }
+    .logo{
+    font-size: 20px;
+   
+    }
+    .xxlarge{
+    font-size: 48px;
+    }
+    .profile_me .container {
+       padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .profile_me .intro-text .name{
+    font-size: 2em;
+    }
     
+    #overview {
+    padding: 0px;
+    }
+}
+/**medium screens**/
+@media all and (max-width: 990px) {
+ #half1 {
+padding-bottom: 50px;        
+}
+#half2 {
+padding-bottom: 50px; 
+} 
+    
+#half3{
+padding-bottom: 50px; 
+}
+.app-bar .logo {
+margin-left: 10px;
+}
+.header_login{
+display: none;
+background-color: #3367D6;
+width: 100%;
+    height: 60px;
+    padding-top: 15px;
+    margin-bottom: 0;
+}
+
+#user_login{
+
+width: 33.3%;
+
+}
+#password_login{
+width: 33.3%;
+
+    
+}
+ #bgimg {
+    
+   padding-bottom: 100px;   
+    }
+
 }
 /** Larger Screens - desktops and tablets **/
 
 @media all and (min-width: 990px) {
     
-    #overview {
-    padding-top: 400px;
-    padding-bottom: 400px;
+  
+    .header_login{
+display: none;
+background-color: #3367D6;
+width: 100%;
+    height: 60px;
+    margin-top: 60px;
+    padding-top: 10px;
+    margin-bottom: 0;
+    
 }
 
     .footer {
-        height: 490px;
+        height: auto;
         width: auto;
         background-color: #4285f4;
         padding-bottom: 50px;
     }
     #half1 {
-        padding-left: 10%;
+        
     }
-    #half2 {} .code-sample3 {
-        margin-top: -20px;
-       
-    }
+    #half2 {} 
+    
     .footer ul a {
         margin-right: 4px;
     }
@@ -626,7 +970,9 @@ textarea {
         padding-right: 10%;
     }
     #bgimg {
-      
+         
+      padding-bottom: 200px;
+    padding-top: 250px;
     }
     .cmn-toggle-switch__htra.active span::after {
         display: none;
@@ -671,7 +1017,7 @@ textarea {
         margin: 0;
         padding: 0;
         line-height: 130px;
-        font-size: 46px;
+        
     }
     .app-bar-actions {
         float: right;
@@ -712,6 +1058,7 @@ textarea {
     }
     .navdrawer-container ul li {
         border: none;
+    
     }
     main {
         max-width: 864px;
@@ -721,6 +1068,17 @@ textarea {
     body {
         overflow-y: scroll;
     }
+}
+@font-face {
+  font-family: icons;
+  src: url(../images/icons/icons.eot);
+  src: url(../images/icons/icons.eot?#iefix) format('embedded-opentype'),
+    url(../images/icons/icons.woff2) format('woff2'),
+    url(../images/icons/icons.woff) format('woff'),
+    url(../images/icons/icons.ttf) format('truetype'),
+    url(../images/icons/icons.svg?#icons) format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
     font-family: 'Roboto Condensed';

@@ -1,21 +1,4 @@
-/*!
- *
- *  Web Starter Kit
- *  Copyright 2014 Google Inc. All rights reserved.
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *    https://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License
- *
- */
+
 (function () {
   'use strict';
 
@@ -76,24 +59,16 @@
     
     
         $(document).ready(function () {
-            $("#star").click(function () {
-                $("#logindiv").css("display", "block");
-            });
+            $("#login_btn").click(function () {
+                $(".header_login").toggle()  }); 
+            
             $("#login #cancel_btn").click(function () {
-                $(this).parent().parent().hide();
-            });
-            $("#cont").click(function () {
-                $("#contactdiv").css("display", "block");
-            });
-            $("#contact #cancel_btn").click(function () {
                 $(this).parent().parent().hide();
             });
             $("#login #cancel").click(function () {
                 $(this).parent().parent().hide();
             });
-            $("#contact #cancel").click(function () {
-                $(this).parent().parent().hide();
-            });
+           
             // Contact form popup send-button click event.
             $("#send").click(function () {
                 var name = $("#name").val();
@@ -120,7 +95,7 @@
                 }
             });
             // Login form popup login-button click event.
-            $("#loginbtn").click(function () {
+            /*$("#loginbtn").click(function () {
                 var name = $("#username").val();
                 var password = $("#password").val();
                 if (username == "" || password == "") {
@@ -129,8 +104,10 @@
                     $("#logindiv").css("display", "none");
                     $("#welcome").replaceWith("<a> Welcome " + name + " </a>").css("disply", "block");
                 } 
-            });
+            });*/
         });
+
+
     
 
 
@@ -138,31 +115,40 @@
 
 
    
+   
+            //lets handle the button click event
+            $('#my_overview').on('click', function (e) {
+                $('body, html').stop().animate({
+                    scrollTop: 0
+                }, 'slow', 'swing');
+                e.preventDefault();
+            });
+
+            $('#my_profile').on('click', function (e) {
+                $('body, html').stop().animate({
+                    scrollTop: $("#profile").offset().top 
+                }, 'slow', 'swing');
+                e.preventDefault();
+            });
+
+                $('#my_contact').on('click', function (e) {
+                $('body, html').stop().animate({
+                    scrollTop: $("#contactme").offset().top 
+                }, 'slow', 'swing');
+                e.preventDefault();
+            });
+
+        $('#my_service').on('click', function (e) {
+                $('body, html').stop().animate({
+                    scrollTop: $("#services").offset().top
+                }, 'slow', 'swing');
+                e.preventDefault();
+            });
 
 
-        $("#code1").click(function () {
-            event.preventDefault();
-            $("html, body").animate({
-                scrollTop: $("#code-sample1").offset().top - -30
-            }, 700);
-            $(".code-sample").show("slow");
-        });
-    
-        $("#overview1").click(function () {
-            event.preventDefault();
-            $("html, body").animate({
-                scrollTop: $("#overview").offset().top - 100
-            }, 700);
-    
-        });
+   
 
-         $("#mobile1").click(function () {
-            event.preventDefault();
-            $("html, body").animate({
-                scrollTop: $("#mobile").offset().top - -30
-            }, 700);
-            $(".mobile-sample").show("slow");
-        });
+  
    
         (function () {
 
@@ -187,64 +173,101 @@
 
         })();
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     var previousScroll = 0,
         headerOrgOffset = $('#overview').offset().top;
 
     $(window).scroll(function() {
         var currentScroll = $(this).scrollTop();
-        if(currentScroll > headerOrgOffset) {
-            if (currentScroll > previousScroll) {
-                $('.promote-layer').fadeOut();
+       
+            if (currentScroll >= previousScroll) {
+                $('.promote-layer').fadeOut("1000");
             } else {
-                $('.promote-layer').fadeIn();
+                $('.promote-layer').fadeIn("1000");
                 $('.promote-layer').addClass('fixed');
             }
-        } else {
-             $('.promote-layer').removeClass('fixed');   
+        
+        previousScroll = currentScroll;
+    });
+
+});*/
+
+$(document).ready(function() {
+    var previousScroll = 0,
+        headerOrgOffset = $('.styleguide__feature-spotlight').offset();
+
+    $(window).scroll(function() {
+        var currentScroll = $(this).scrollTop();
+        if(currentScroll > headerOrgOffset) {
+            if (currentScroll > previousScroll) {
+                $('#code-sample').slideDown();
+            } else {
+                $('#code-sample').slideDown();
+                
+            }
+        } 
+        previousScroll = currentScroll;
+    });
+
+});
+
+$(document).ready(function() {
+    var previousScroll = 0,
+        headerOrgOffset = $('#mobile').offset();
+
+    $(window).scroll(function() {
+        var currentScroll = $(this).scrollTop();
+        if(currentScroll > headerOrgOffset) {
+            if (currentScroll > previousScroll) {
+                $('.mobile-sample').slideDown();
+            } else {
+                $('.mobile-sample').slideDown();
+                
+            }
+        } 
+        previousScroll = currentScroll;
+    });
+
+});
+
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('.promote-layer').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+         $('.promote-layer').fadeOut("1000");
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+             $('.promote-layer').fadeIn("1000");
         }
-        previousScroll = currentScroll;
-    });
-
-});
-
-$(document).ready(function() {
-    var previousScroll = 0,
-        headerOrgOffset = $('.styleguide__feature-spotlight').offset().top;
-
-    $(window).scroll(function() {
-        var currentScroll = $(this).scrollTop();
-        if(currentScroll > headerOrgOffset) {
-            if (currentScroll > previousScroll) {
-                $('#code-sample').slideDown();
-            } else {
-                $('#code-sample').slideDown();
-                
-            }
-        } 
-        previousScroll = currentScroll;
-    });
-
-});
-
-$(document).ready(function() {
-    var previousScroll = 0,
-        headerOrgOffset = $('#mobile').offset().top;
-
-    $(window).scroll(function() {
-        var currentScroll = $(this).scrollTop();
-        if(currentScroll > headerOrgOffset) {
-            if (currentScroll > previousScroll) {
-                $('.mobile-sample').slideDown();
-            } else {
-                $('.mobile-sample').slideDown();
-                
-            }
-        } 
-        previousScroll = currentScroll;
-    });
-
-});
+    }
+    
+    lastScrollTop = st;
+}
    
 
     
