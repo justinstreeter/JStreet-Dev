@@ -140,9 +140,90 @@ height: auto;
     background-attachment: fixed;
 }
 
+#user_profile{
+height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+   background-image: url("../images/program.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#profile_heading{
+
+text-align: center;
+color: white;
+text-shadow: 2px 2px black;
+font-size: 100px;    
+
+}
+
+.thumb_img{
+text-align: center;
+margin-right: auto;
+margin-left: auto;
+width: 100%;
+}
+
 .service_img{
 width: 500px;
 height: 300px;
+}
+
+.profile_img{
+background-image: url("../images/profile.png");
+background-size: contain;
+    background-repeat: no-repeat;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: 350px;
+background-position: center
+}
+
+.profile_img:hover{
+
+padding: 5px;
+}
+
+#profile_name{
+font-size: 50px;
+}
+
+
+
+.profile_img input {
+    width: 250px;
+height: 250px;
+   opacity: 0;
+}
+
+#submit_btn{
+
+}
+#fileToUpload{
+opacity: 0;
+height: 100%;
+width: 100%;
+}
+
+
+#reg_img{
+    background-image: url("../images/profile.png");
+    margin-right: auto;
+    margin-left: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 400px;
+    height: 400px;
+margin-top: 50px;
+margin-bottom: 50px;
+
+}
+
+#reg_img:hover{
+border: 1px solid black;
 }
 
 .btn-custom{
@@ -351,8 +432,8 @@ main {
 }
 main {
     margin: 0 auto;
-    /* Height of the header */
-    padding: 60px 16px 16px 16px;
+    /* Height of the header 
+    padding: 60px 16px 16px 16px; */
 }
 #mainform {
     width: 960px;
@@ -552,6 +633,8 @@ color: white;
 .floating-label-form-group textarea:-ms-input-placeholder{
 color: white;
 } 
+
+
 .floating-label-form-group label {
     display: block;
     color: white;
@@ -631,6 +714,20 @@ form .row:first-child .floating-label-form-group {
     border-radius: 5px;
     display: none;
 
+}
+
+.float_message{
+    height: auto;
+    width: auto;
+position: fixed;
+    bottom: 20px;
+    left: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #454440; 
+    padding: 10px;
+    border-radius: 5px;
+    
 }
 .cmn-toggle-switch {
     display: block;
@@ -929,7 +1026,7 @@ width: 33.3%;
     
 }
  #bgimg {
-    
+    padding-top: 50px;
    padding-bottom: 100px;   
     }
 
@@ -972,7 +1069,7 @@ width: 100%;
     #bgimg {
          
       padding-bottom: 200px;
-    padding-top: 250px;
+    padding-top: 200px;
     }
     .cmn-toggle-switch__htra.active span::after {
         display: none;
@@ -1061,6 +1158,7 @@ width: 100%;
     
     }
     main {
+        display: none;
         max-width: 864px;
         padding-top: 0;
         min-height: initial;

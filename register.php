@@ -1,8 +1,16 @@
 <?php
 include 'header.php';
 $user = "user";
-$message = " ";
+
+date_default_timezone_set('US/Eastern');
+// set date variable to mm/dd/yyyy
+$date = date('m-d-Y h:m:s');
+
 $valid = false;
+
+// $sql = "SELECT profile.profile_img, users.fname, profile.profile_info, users.lname FROM profile INNER JOIN users ON users.id=profile.user_id WHERE uname = '$usr' ";
+
+//$conn->query($sql);
 // Check to see if form was submitted via POST
 if($_POST){
 // Check for fname
@@ -11,7 +19,7 @@ $fname = $_POST['fname'];
 $valid = true;
 } else {
 	$valid = false;
-	$message .= "First Name is required.<br />";
+	$message = "First Name is required.<br />";
 } // end fname check
 // Check for lname
 if($_POST['lname']){
@@ -19,7 +27,7 @@ $lname = $_POST['lname'];
 $valid = true;	
 } else {
 	$valid = false;
-	$message .= "Last Name is required.<br />";
+	$message = "Last Name is required.<br />";
 }// end lname check
 // check for email
     if($_POST['username']){
@@ -27,14 +35,14 @@ $valid = true;
     $valid = true;
     }else{
     $valid = false;
-    $message .= "please enter a username";
+    $message = "please enter a username";
     }
 if($_POST['email']){
 $email = $_POST['email'];
 $valid = true;	
 } else {
 $valid = false;
- $message .= "please enter a email";   
+ $message = "please enter a email";   
 }
     	// The Email Address exists
     	// try to query the DB
@@ -68,7 +76,7 @@ $valid = true;
 $pass = $_POST['pass'];
 } else {
 $valid = false;
-$message .= "Please enter a password.<br />";
+$message = "Please enter a password.<br />";
 } // pass check
 // check confirm password
 if ($_POST['pass2']){
@@ -77,7 +85,7 @@ $pass2 = $_POST['pass2'];
 	// Check to see that the passwords match
 	  if ($pass != $pass2){
 		  $valid = false;
-		$message .= "The passwords do not match.";  
+		$message = "The passwords do not match.";  
 	  } else {
 		  $valid = true;
 		  // Encrypt Password
@@ -85,34 +93,136 @@ $pass2 = $_POST['pass2'];
 	  } // end password match
 } else {
 	$valid = false;
-	$message .= "Please confirm your password.<br />";
+	$message = "Please confirm your password.<br />";
 } // end pass2 check
+    
+    
+    
+
+$img_name = basename($_FILES["fileToUpload"]["name"]);
+$target_dir = "uploads/";
+$target_file = $target_dir . $img_name;
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+$temp_img = $_FILES["fileToUpload"]["tmp_name"];    
+
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+// Check if file already exists
+
+// Check file size
+if (($_FILES["fileToUpload"]["size"] > 5000000) && ($uploadOk == 1)) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if (($uploadOk == 1) && (strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpeg"
+&& strtolower($imageFileType) != "gif")) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	echo $imageFileType;
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo " Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        //echo "The file ". $img_name. " has been uploaded. <br/>";
+       $new_img_name = explode(".", $img_name);
+           
+        $count_var = count($new_img_name) -1;
+        $file_ext = $new_img_name[$count_var];
+        
+        $user_img_name = $user_name.".".$file_ext;
+        
+        $new_user_img_name = $target_dir.$user_img_name;
+        $message = $user_img_name. "is uploaded";
+        
+        
+        
+       rename($target_file,$new_user_img_name);
+        
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+
+        
+        
+        
+    
+    
+    if($_POST['message']){
+    $profileinfo = $_POST['message'];
+    $valid = true;
+    }else{
+    $valid = false;
+    $message = "please enter a message";
+    }
+    
 if($valid && $count == 0){
 	//echo $email, $encPass, $fname, $lname;
 	// try to query the DB
 		try{
             require 'dbcon.php';
 		// Check to see if that Email Address exists in our DB
-			$sql = "INSERT INTO users (id, uname, pword, email, fname, lname, groups) VALUES ('', '$user_name', '$encPass', '$email', '$fname', '$lname', '$user')";
+			$sql = "INSERT INTO users (id, uname, pword, email, fname, lname, date, groups) VALUES ('', '$user_name', '$encPass', '$email', '$fname', '$lname', '$date',  '$user')";
 		// execute SQL query
 		$row = $conn->prepare($sql);
 		$row->execute();
          $count = $row->rowCount();   
+            $message .= "account registered";
 		// let user know that the info was inserted into the DB
-		$message .= "Account registered.<br />";
-		} 
 		// catch the Exception if it could not query the DB
-		catch (Exception $e){
+        }catch (Exception $e){
 		// Display an error message as well as the system generated error
-		$message .= "There was an error registering account: " . $e->getMessage();	
+		$message = "There was an error registering account: " . $e->getMessage();	
 		} // end try catch
-} // end $valid check
 
+    try{
+    
+         require 'dbcon.php';
+            
+            $sql3 = "SELECT * from users WHERE uname = '$user_name'";
+            $user_id = $conn->query($sql3); 
+            foreach($user_id as $usrid){
+            $userid = $usrid['id'];
+            }
+    }catch (Exception $e){
+		// Display an error message as well as the system generated error
+		$message = "There was an error registering account: " . $e->getMessage();	
+		} // end try catch 
+            
+            try{
+            
+                require 'dbcon.php'; 
+                $sql2 = "INSERT INTO profile (id, user_id, profile_img, profile_info) VALUES ('', '$userid', '$user_img_name', '$profileinfo');";
+                $conn->query($sql2);
+                $message = "Account registered ".$fname."<br />";
+		}catch (Exception $e){
+		// Display an error message as well as the system generated error
+		$message = "There was an error registering account: " . $e->getMessage();	
+		} // end try catch  
+        
+    //ipload image
+    
+            
+ // end $valid check
 }
+}
+
 
 ?>
 
-<p><?php echo $message; ?></p>
+
 <main>
     </main>
  <section id="contactme">
@@ -127,7 +237,7 @@ if($valid && $count == 0){
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form method="post">
+                    <form method="post" enctype='multipart/form-data'>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>First Name</label>
@@ -167,6 +277,28 @@ if($valid && $count == 0){
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Password Confirmed</label>
                                 <input type="password" class="form-control" placeholder="Confirm Password" id="pass2" name="pass2" required data-validation-required-message="Please reenter your password.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Date</label>
+                                <input type="text" class="form-control" placeholder="Date" id="date" name="date" value="<?php echo $date; ?>" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Upload Profile Picture</label>
+                                <div style=" background-image: url('uplaods/<?php echo $user_name ?>'); " id="reg_img">
+                                <input type="file" class="form-control"  id="fileToUpload" name="fileToUpload"/>
+                                </div>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>

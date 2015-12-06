@@ -1,13 +1,16 @@
 <?php 
+
+require 'dbcon.php'; 
+
 session_start();
 if (!@$_SESSION['uname']){
-    echo "nope";
+   
    
 }else{
 $usr = $_SESSION['uname'];
-echo $usr;
+   
 }
-require 'dbcon.php'; 
+
 //$sql = "SELECT * FROM news ORDER BY date ";
 //$posts = $db->query($sql);
 
@@ -66,7 +69,7 @@ require 'dbcon.php';
             <section class="app-bar-actions">
                 <!-- Put App Bar Buttons Here -->
                 <?php 
-if($_SESSION){
+
 if(@!$_SESSION['uname']){
                 echo "<button id='login_btn'><strong><span class='glyphicon glyphicon-log-in' style='align:center;' aria-hidden='true'></span>Login</strong>
                 </button>";
@@ -74,7 +77,7 @@ if(@!$_SESSION['uname']){
                 echo "<form action='logout.php' method='post'><button type='submit' id='logout_btn'><strong><span class='glyphicon glyphicon-log-out' style='align:center;' aria-hidden='true' ></span>Logout</strong>
                 </button></form>";
 }
-} ?>
+ ?>
                 
              
             </section>
@@ -83,7 +86,7 @@ if(@!$_SESSION['uname']){
       <!--login area start-->
                 <form class="header_login" action="login.php" method="post">
                 <input type="submit" id="login_submit" class="btn btn-success" value="submit"/>
-                <input type="text"  placeholder="Password" id="password_login" name="password_login">    
+                <input type="password"  placeholder="Password" id="password_login" name="password_login">    
                 <input type="text"  placeholder="Username" id="user_login" name="user_login">
                 
                 
@@ -97,10 +100,29 @@ if(@!$_SESSION['uname']){
         <h4>Code Together</h4>
         <ul>
             <li>
-                <a id='welcome'>Welcome ".$usr."</a>
+                <a href='profiles.php' id='welcome' > Welcome ".$_SESSION['uname']."</a>
             </li>
             <li>
                 <a href='register.php' id='register_user'>Register User</a>
+            </li>
+            <li>
+                <a href='content.php' id='projects_active'>Active Projects</a>
+            </li>
+            <li>
+                <a id='projects_finished'>Finished Projects</a>
+            </li>
+           
+        </ul>
+     
+    </nav>";
+        
+    }else if(@$_SESSION['groups'] == 'user'){
+        
+         echo "<nav class='navdrawer-container promote-layer'>
+        <h4>Code Together</h4>
+        <ul>
+            <li>
+                <a href='profiles.php' id='welcome'> Welcome ".$_SESSION['uname']."</a>
             </li>
             <li>
                 <a href='content.php' id='projects_active'>Active Projects</a>

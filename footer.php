@@ -45,6 +45,7 @@
      <a href="#" class="to-top-btn">
         <img src="images/scroll_to_top.png" style="width:50px; height:50px; opacity: 0.9;" alt="back-to-top">
     </a>
+    <div class="float_message"><?php echo $message ?></div>
     <script src="scripts/npm.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/bootstrap.js"></script>

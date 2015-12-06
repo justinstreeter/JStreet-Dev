@@ -70,7 +70,7 @@
             });
            
             // Contact form popup send-button click event.
-            $("#send").click(function () {
+          /*  $("#send").click(function () {
                 var name = $("#name").val();
                 var email = $("#email").val();
                 var contact = $("#contactno").val();
@@ -94,6 +94,7 @@
                     }
                 }
             });
+      
             // Login form popup login-button click event.
             /*$("#loginbtn").click(function () {
                 var name = $("#username").val();
@@ -106,7 +107,9 @@
                 } 
             });*/
         });
-
+      if($('.float_message').is(':visible')) {
+    $('.float_message').fadeOut(3000);
+};
 
     
 
@@ -268,6 +271,9 @@ function hasScrolled() {
     
     lastScrollTop = st;
 }
-   
 
+   
+document.getElementById("fileToUpload").onchange = function() {
+    document.getElementById("profile_form").submit();
+}
     
