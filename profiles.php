@@ -31,7 +31,7 @@ if ( @$_SESSION['groups'] != "admin"){
             <div class='caption'>
             <h3 id='profile_name'>".$pro['fname']; echo "&nbsp".$pro['lname']."</h3>
             <p>".$pro['profile_info']; echo "</p>
-             <p><a href='#' class='btn btn-custom2' role='button'>Active Projects</a> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
+             <p><a href='active_projects.php' class='btn btn-custom2' role='button'>Active Projects</a> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
             </div>
             </div>
         </div>
@@ -66,7 +66,7 @@ if ( @$_SESSION['groups'] != "admin"){
             <p> Date Registered: ".$pro['date']; echo "</p>
             <h3 id='profile_name'>".$pro['fname']; echo "&nbsp".$pro['lname']."</h3>
             <p>".$pro['profile_info']; echo "</p>
-             <p><a href='#' class='btn btn-custom2' role='button'>Active Projects</a> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
+             <p><a href='active_projects.php' class='btn btn-custom2' role='button'>Active Projects</a> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
             </div>
             </div>
         </div>

@@ -106,7 +106,7 @@ if(@!$_SESSION['uname']){
                 <a href='register.php' id='register_user'>Register User</a>
             </li>
             <li>
-                <a href='content.php' id='projects_active'>Active Projects</a>
+                <a href='active_projects.php' id='projects_active'>Active Projects</a>
             </li>
             <li>
                 <a id='projects_finished'>Finished Projects</a>
@@ -125,7 +125,7 @@ if(@!$_SESSION['uname']){
                 <a href='profiles.php' id='welcome'> Welcome ".$_SESSION['uname']."</a>
             </li>
             <li>
-                <a href='content.php' id='projects_active'>Active Projects</a>
+                <a href=active_projects.php' id='projects_active'>Active Projects</a>
             </li>
             <li>
                 <a id='projects_finished'>Finished Projects</a>

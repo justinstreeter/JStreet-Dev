@@ -21,7 +21,7 @@ include 'header.php';
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="images/profile.png" alt="">
+                    <img class="img-responsive" src="images/justin.jpg" alt="">
                     <div class="intro-text">
                         <span class="name">Justin Streeter</span>
                         <hr class="star-light">

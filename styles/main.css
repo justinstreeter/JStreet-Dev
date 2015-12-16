@@ -159,6 +159,13 @@ font-size: 100px;
 
 }
 
+#active_heading{
+text-align: center;
+color: white;
+text-shadow: 2px 2px black;
+font-size: 100px; 
+}
+
 .thumb_img{
 text-align: center;
 margin-right: auto;
@@ -933,6 +940,8 @@ color: white;
 .profile_me img {
     display: block;
     margin: 0 auto 20px;
+        border: 1px;
+    border-radius: 50%;
 }
 
 .profile_me .intro-text .name {
