@@ -150,6 +150,17 @@ height: auto;
     background-attachment: fixed;
 }
 
+#active_prof{
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+   background-image: url("../images/program.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
 #profile_heading{
 
 text-align: center;
