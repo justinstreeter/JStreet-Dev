@@ -175,6 +175,35 @@ text-align: center;
 color: white;
 text-shadow: 2px 2px black;
 font-size: 100px; 
+padding-bottom: 50px;
+}
+
+    #active_section{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    }
+    
+    .screenshot_img{
+background-image: url("../images/profile.png");
+background-size: contain;
+    background-repeat: no-repeat;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: 350px;
+background-position: center
+}
+
+.profile_small_img{
+background-image: url("../images/profile.png");
+background-size: contain;
+    background-repeat: no-repeat;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: 80px;
+background-position: center
 }
 
 .thumb_img{
@@ -206,7 +235,7 @@ padding: 5px;
 }
 
 #profile_name{
-font-size: 50px;
+font-size: 43px;
 }
 
 
