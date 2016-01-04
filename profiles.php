@@ -72,6 +72,9 @@ if ( @$_SESSION['groups'] != "admin"){
             <p>".$pro['profile_info']; echo "</p>
             <form action='active_projects.php' method='post'>
             <input type='hidden' name='uid' value='".$pro['id']; echo "'>
+            <input type='hidden' name='fname' value='".$pro['fname']; echo "'/>
+            <input type='hidden' name='lname' value='".$pro['lname']; echo "'/>
+            <input type='hidden' name='proimg' value='".$pro['profile_img']; echo "'/>
              <p><input class='btn btn-custom2' type='submit' value='Active Projects'/> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
              </form>
             </div>

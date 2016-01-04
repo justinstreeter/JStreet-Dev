@@ -204,7 +204,6 @@ background-position: center
 background-image: url("../images/profile.png");
 background-size: contain;
     background-repeat: no-repeat;
-margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 height: 80px;
@@ -288,6 +287,7 @@ border: 1px solid #18bc9c;
 }
 .btn-custom2{
 background: #4285f4;
+max-width: 150px;
 }
 .btn-custom2:hover{
 background: white;
