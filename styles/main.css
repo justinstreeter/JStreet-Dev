@@ -179,11 +179,16 @@ padding-bottom: 50px;
 }
 
     #active_section{
+        margin: 50px 0px 50px 0px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     }
-    
+    #active-col{
+         background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    }
     .screenshot_img{
 background-image: url("../images/profile.png");
 background-size: contain;
