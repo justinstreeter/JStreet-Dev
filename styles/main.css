@@ -279,6 +279,8 @@ border: 1px solid black;
 
 .btn-custom{
 background: #18bc9c;
+max-width: 150px;
+color: white;
 }
 .btn-custom:hover{
 background: white;
@@ -288,6 +290,7 @@ border: 1px solid #18bc9c;
 .btn-custom2{
 background: #4285f4;
 max-width: 150px;
+color: white;
 }
 .btn-custom2:hover{
 background: white;
@@ -920,6 +923,11 @@ text-align: center;
     width: auto;
     background-color: #4285f4;
     padding-bottom: 50px;
+}
+
+.list__item{
+    
+   font-size: 20px;
 }
 .endfoot {
     height: 30px;

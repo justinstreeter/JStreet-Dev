@@ -5,7 +5,7 @@
         
         $userName = $_POST['user_login']; // required
         $pass = $_POST['password_login']; //required
-    
+    $message ="";
         
         
         try{
@@ -40,6 +40,7 @@
 			session_start();
 			$_SESSION['uname'] = $userName;
             $_SESSION['groups'] = $level;
+            $_SESSION['id'] = $ids; 
             
             header ( 'location: profiles.php');
             

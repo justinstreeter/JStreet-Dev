@@ -8,7 +8,7 @@ if (!@$_SESSION['uname']){
    
 }else{
 $usr = $_SESSION['uname'];
-   
+  
 }
 
 //$sql = "SELECT * FROM news ORDER BY date ";
@@ -105,12 +105,7 @@ if(@!$_SESSION['uname']){
             <li>
                 <a href='register.php' id='register_user'>Register User</a>
             </li>
-            <li>
-                <a href='active_projects.php' id='projects_active'>Active Projects</a>
-            </li>
-            <li>
-                <a id='projects_finished'>Finished Projects</a>
-            </li>
+            
            
         </ul>
      
@@ -124,13 +119,12 @@ if(@!$_SESSION['uname']){
             <li>
                 <a href='profiles.php' id='welcome'> Welcome ".$_SESSION['uname']."</a>
             </li>
-            <li>
-                <a href=active_projects.php' id='projects_active'>Active Projects</a>
+           <li>
+                <a href='active_projects.php' id='projects_active' value='".$_SESSION['id']."' >Active Projects</a>
             </li>
             <li>
-                <a id='projects_finished'>Finished Projects</a>
+                <a href='finished_projects.php' id='projects_finished' value='".$_SESSION['id']."' >Finished Projects</a>
             </li>
-           
         </ul>
      
     </nav>";
@@ -166,4 +160,5 @@ if(@!$_SESSION['uname']){
     <!-- nav end -->
 
     <div id="bgimg">
+        
     

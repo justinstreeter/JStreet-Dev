@@ -23,7 +23,7 @@ if ( @$_SESSION['groups'] != "admin"){
     foreach ($profile as $pro): 
 
    echo "
-       <div class='col-sm-6 col-md-4'>
+       <div class='col-md-6 col-md-offset-3'>
         <div class='thumbnail'>
             <form class='thumb_img' id='profile_form' action='img_upload.php' method='post' enctype='multipart/form-data'>
             <div class='profile_img' style='background-image: url(uploads/".$pro['profile_img']; echo ")'>
@@ -75,8 +75,19 @@ if ( @$_SESSION['groups'] != "admin"){
             <input type='hidden' name='fname' value='".$pro['fname']; echo "'/>
             <input type='hidden' name='lname' value='".$pro['lname']; echo "'/>
             <input type='hidden' name='proimg' value='".$pro['profile_img']; echo "'/>
-             <p><input class='btn btn-custom2' type='submit' value='Active Projects'/> <a href='#' class='btn btn-custom' role='button'>Finished Projects</a></p>    
+             <p><input class='btn btn-custom2' type='submit' value='Active Projects'/> </p>
              </form>
+              <form action='finished_projects.php' method='post'>    
+             <input type='hidden' name='uid' value='".$pro['id']; echo "'>
+            <input type='hidden' name='fname' value='".$pro['fname']; echo "'/>
+            <input type='hidden' name='lname' value='".$pro['lname']; echo "'/>
+            <input type='hidden' name='proimg' value='".$pro['profile_img']; echo "'/>
+           <p> <input type='submit' href='#' class='btn btn-custom' role='button' value='Finished Projects'/></p>
+            </form>
+            <form action='make_project.php' method='post' >
+            <input type='hidden' name='sendid' value='".$pro['id']; echo "'/>
+            <p> <input type='submit' href='#' class='btn btn-custom' role='button' value='Make New Project'/></p>
+            </form>
             </div>
             </div>
         </div>
